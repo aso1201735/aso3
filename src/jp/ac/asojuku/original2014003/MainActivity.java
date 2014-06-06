@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
@@ -28,6 +29,16 @@ public class MainActivity extends Activity implements View.OnClickListener {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
+	}
+		@Override
+		public void onClick(View v) {
+			// TODO 自動生成されたメソッド・スタブ
+			switch(v.getId()){ //どのボタンが押されたか判定
+			case R.id.btnOK: //ボタンbtnOKが押された
+				//エディットテキストから内容を取り出す
+				EditText etv = (EditText)findViewById(R.id.edtName);
+				String inputMsg = etv.getText().toString();
+
 	}
 
 }
