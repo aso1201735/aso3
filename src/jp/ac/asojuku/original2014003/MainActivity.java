@@ -22,6 +22,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
 		super.onResume();
 		Button btnOK = (Button)findViewById(R.id.btnOK);
 		btnOK.setOnClickListener(this);
+		Button btnOK2 = (Button)findViewById(R.id.btnOK2);
+		btnOK2.setOnClickListener(this);
+		Button btnOK3 = (Button)findViewById(R.id.btnOK3);
+		btnOK3.setOnClickListener(this);
+
 	}
 
 	@Override
@@ -41,4 +46,5 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
 	}
 
+	}
 }
