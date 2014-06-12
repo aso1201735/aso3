@@ -1,11 +1,10 @@
 package jp.ac.asojuku.original2014003;
 
-
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.View;
 
-public class HitokotoActivity extends Activity implements View.OnClickListener {
+
+public class HitokotoActivity extends Activity  {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
