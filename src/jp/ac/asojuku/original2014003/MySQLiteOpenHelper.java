@@ -3,6 +3,7 @@ package jp.ac.asojuku.original2014003;
 
 import android.content.Context;
 import android.database.SQLException;
+import android.database.sqlite.SQLiteCursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -64,6 +65,27 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 	 *  @param SQLiteDatabase インサート先DBのインスタンス変数
 	 *  @param inputMsg インサートするメッセージ
 	 */
+
+	public String selectRandomHitokoto(SQLiteDatabase db){
+		String rtString = null;
+
+		String sqlstr = "SELECT _id phrase FROM Hitokoto ORDER BY RANDOM(); ";
+			try {
+				//トランザクション開始
+				SQLiteCursor cursor = (SQLiteCursor)db.rawQuery(sqlstr, null);
+				if(cursor.getCount()!=0){
+					//カーソル開始位置を先頭にする
+					cursor.close();
+					rtString = cursor.getString(1);
+				}
+				cursor.close();
+			}catch (SQLException e) {
+				Log.e("ERROR",e.toString());
+			}finally {
+				//既にカーソルもcloseしてあるので、何もしない
+			}
+		return rtString;
+	}
 
 
 }

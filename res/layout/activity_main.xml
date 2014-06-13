@@ -13,8 +13,8 @@
         android:id="@+id/btnOK"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/edtName"
-        android:layout_below="@+id/edtName"
+        android:layout_alignLeft="@+id/edtMsg"
+        android:layout_below="@+id/edtMsg"
         android:layout_marginTop="16dp"
         android:text="メンテ" />
 
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/btnOK"
         android:layout_alignBottom="@+id/btnOK"
-        android:layout_alignRight="@+id/edtName"
+        android:layout_alignRight="@+id/edtMsg"
         android:text="登録" />
 
     <Button
@@ -47,7 +47,7 @@
         android:text="今日のひとこと" />
 
     <EditText
-        android:id="@+id/edtName"
+        android:id="@+id/edtMsg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView2"

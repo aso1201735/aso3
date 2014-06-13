@@ -261,7 +261,7 @@ int id dialog 0x7f05000e
 int id disableHome 0x7f050008
 int id dropdown 0x7f05000f
 int id edit_query 0x7f050030
-int id edtName 0x7f05003e
+int id edtMsg 0x7f05003e
 int id end 0x7f050013
 int id expand_activities_button 0x7f050026
 int id expanded_menu 0x7f05002c
@@ -330,7 +330,8 @@ int layout abc_search_view 0x7f030016
 int layout abc_simple_decor 0x7f030017
 int layout activity_main 0x7f030018
 int layout hitokoto_activity 0x7f030019
-int layout support_simple_spinner_dropdown_item 0x7f03001a
+int layout mente_activity 0x7f03001a
+int layout support_simple_spinner_dropdown_item 0x7f03001b
 int menu main 0x7f0c0000
 int string abc_action_bar_home_description 0x7f0a0001
 int string abc_action_bar_up_description 0x7f0a0002
