@@ -35,11 +35,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
 		btnOK3.setOnClickListener(this);
 
 
-
-
-
-
-
 		//クラスのフィールド変数がNULLなら、データベース空間オープン
 		if(sdb == null) {
 			helper = new MySQLiteOpenHelper(getApplicationContext());
@@ -78,7 +73,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 				break;
 
 			case R.id.btnOK:
-				intent = new Intent(MainActivity.this,HitokotoActivity .class);
+				intent = new Intent(MainActivity.this,MenteActivity .class);
 				startActivity(intent);
 				break;
 

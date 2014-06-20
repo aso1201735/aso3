@@ -69,13 +69,13 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 	public String selectRandomHitokoto(SQLiteDatabase db){
 		String rtString = null;
 
-		String sqlstr = "SELECT _id phrase FROM Hitokoto ORDER BY RANDOM(); ";
+		String sqlstr = "SELECT _id , phrase FROM Hitokoto ORDER BY RANDOM(); ";
 			try {
 				//トランザクション開始
 				SQLiteCursor cursor = (SQLiteCursor)db.rawQuery(sqlstr, null);
 				if(cursor.getCount()!=0){
 					//カーソル開始位置を先頭にする
-					cursor.close();
+					cursor.moveToFirst();
 					rtString = cursor.getString(1);
 				}
 				cursor.close();
@@ -86,6 +86,52 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 			}
 		return rtString;
 	}
+	/**
+	 * Hitokotoテーブルからデータをすべて取得
+	 * @param SQLiteDatabase SELECTアクセスするDBのインスタンス変数
+	 * @param 取得したデータの塊の表の（導出表）のレコードをポイントするカーソル
+	 */
+	public SQLiteCursor selectHitokotoList(SQLiteDatabase db){
 
+		SQLiteCursor cursor = null;
 
+		String sqlstr = "SELECT _id , phrase FROM Hitokoto ORDER BY _id;";
+		try {
+			//トランザクション開始
+			cursor = (SQLiteCursor)db.rawQuery(sqlstr, null);
+			if(cursor.getCount()!=0){
+				//カーソル開始位置を先頭にする
+				cursor.moveToFirst();
+			}
+			//cursorは呼び出しもとへ返すからここではcloseしない
+			//cursor.close();
+
+		}catch (SQLException e) {
+			Log.e("ERROR",e.toString());
+		}finally{
+
+		}
+		return cursor;
+
+}
+	/**
+	 *  Hitokoto表から引数(id)で指定した値とカラム「_id」の値が等しいレコードを削除
+	 *  @param SQLiteDatabase DELETEアクセスするDBのインスタンス変数
+	 *  @param id カラム「_id」と比較するために指定する削除条件の値
+	 */
+	public void deleteHitokoto(SQLiteDatabase db, int id){
+		String sqlstr ="DELETE FROM Hitokoto where _id = " + id + ";";
+		try{
+			//トランザクション開始
+			db.beginTransaction();
+			db.execSQL(sqlstr);
+			//トランザクション成功
+			db.setTransactionSuccessful();
+		}catch (SQLException e){
+			Log.e("ERROR",e .toString());
+		}finally {
+			//トランザクション終了
+			db.endTransaction();
+		}
+	}
 }
